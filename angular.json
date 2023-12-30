@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "clavius-adventures": {
+    "Angular-lucky-wheel": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/clavius-adventures",
+            "outputPath": "dist/Angular-lucky-wheel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -41,12 +41,6 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
@@ -64,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "clavius-adventures:build:production"
+              "browserTarget": "Angular-lucky-wheel:build:production"
             },
             "development": {
-              "browserTarget": "clavius-adventures:build:development"
+              "browserTarget": "Angular-lucky-wheel:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "clavius-adventures:build"
+            "browserTarget": "Angular-lucky-wheel:build"
           }
         },
         "test": {
