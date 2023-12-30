@@ -1,0 +1,90 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  background-color: #010822;
+}
+html {
+  font-size: 16px;
+  font-family: var(--font-family-Monarch);
+  overflow: hidden;
+}
+
+.change-bg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  height: 50px;
+  @include mq(max-width 768px) {
+    width: 140px;
+    height: max-content;
+  }
+  .box {
+    position: relative;
+    @include size(50px);
+    border-radius: var(--box-border-radius, 50%);
+    $colors: #00593d, #7969cb, #b6202b;
+    cursor: pointer;
+    border: var(--border-size, 1px) solid var(--border-color, #fff);
+    @include default-transitions(border-radius);
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include size(20px);
+      background-color: #fff;
+      border-radius: 50%;
+      opacity: var(--is-active-opacity, 0);
+      @include default-transitions(opacity);
+      @include mq(max-width 768px) {
+        @include size(10px);
+      }
+    }
+    &.is-active {
+      --is-active-opacity: 1;
+      --border-size: 2px;
+      pointer-events: none;
+    }
+    &:hover {
+      --box-border-radius: 10px;
+    }
+
+    @for $i from 1 through length($colors) {
+      &:nth-child(#{length($colors)}n + #{$i}) {
+        background-color: nth($colors, $i);
+      }
+    }
+    @include mq(max-width 768px) {
+      @include size(30px);
+    }
+  }
+}
+
+// .loader {
+//   --circle-width: 0%;
+
+//   position: fixed;
+//   inset: 0;
+//   z-index: 3;
+//   width: 100dvw;
+//   height: 100dvh;
+//   background: radial-gradient(
+//     circle at center,
+//     transparent var(--circle-width),
+//     #010822 calc(var(--circle-width) + 40px)
+//   );
+//   background-size: 100% 100%;
+//   background-position: 50% 50%;
+//   transition: all 2s ease;
+//   &.loaded {
+//     pointer-events: none;
+//   }
+
+//   .img {
+//     width: 150px;
+//   }
+// }
