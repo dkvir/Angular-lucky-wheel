@@ -1,7 +1,5 @@
 <canvas #canvas class="canvas"></canvas>
 <div class="change-bg flex-center justify-between">
-  <div class="box green"></div>
-  <div class="box blue"></div>
-  <div class="box red"></div>
+  <div *ngFor="let box of [].constructor(3); let i = index;" [ngClass]="{'isActive': activeBackgroundIndex === i}" class="box green"></div>
 </div>
 <app-loader></app-loader>

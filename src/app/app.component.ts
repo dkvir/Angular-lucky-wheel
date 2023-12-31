@@ -26,6 +26,7 @@ export class AppComponent implements AfterViewInit {
   boxHeight: number = 71;
   animating: boolean = false;
   fullCircle: number = 5;
+  activeBackgroundIndex: number = 0;
 
   //containers
   wheelContainer: PIXI.Container = new PIXI.Container();
@@ -81,7 +82,7 @@ export class AppComponent implements AfterViewInit {
 
   changeBg() {
     const bgBoxes = document.querySelectorAll('.change-bg .box');
-    let activeBackgroundIndex = 0;
+    this.activeBackgroundIndex = 0;
     const bgTextures = [
       this.textures.backgroundGreen,
       this.textures.backgroundBlue,
@@ -93,10 +94,10 @@ export class AppComponent implements AfterViewInit {
 
     bgBoxes.forEach((box, index) => {
       box.addEventListener('click', () => {
-        bgBoxes[activeBackgroundIndex].classList.remove('is-active');
-        activeBackgroundIndex = index;
+        // bgBoxes[this.activeBackgroundIndex].classList.remove('is-active');
+        this.activeBackgroundIndex = index;
         this.background.texture = bgTextures[index];
-        bgBoxes[activeBackgroundIndex].classList.add('is-active');
+        // bgBoxes[this.activeBackgroundIndex].classList.add('is-active');
       });
     });
 
