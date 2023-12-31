@@ -51,6 +51,7 @@ export class AppComponent implements AfterViewInit {
 
     this.loadAssets();
     // this.addEventListeners();
+    this.resize();
     window.addEventListener('resize', () => this.resize());
   }
 
