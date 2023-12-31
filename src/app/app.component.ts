@@ -49,6 +49,11 @@ export class AppComponent implements AfterViewInit {
     gsap.registerPlugin(PixiPlugin);
     PixiPlugin.registerPIXI(PIXI);
 
+    PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.LINEAR;
+    PIXI.settings.PRECISION_FRAGMENT = PIXI.PRECISION.HIGH;
+
+    this.app.renderer.roundPixels = true;
+
     this.loadAssets();
   }
 
@@ -65,6 +70,7 @@ export class AppComponent implements AfterViewInit {
 
     const { textures } = await Assets.loadBundle(['textures']);
     this.textures = textures;
+    textures.iron.baseTexture.mipmap = true;
     this.changeBg();
     this.addWheelSector();
     this.createButton();
