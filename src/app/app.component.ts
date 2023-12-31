@@ -17,7 +17,7 @@ export class AppComponent implements AfterViewInit {
   //global variables
   textures: any;
   app: any;
-  background: PIXI.Sprite;
+  background: any;
   wheelSectors: WheelSectors[] = [];
   radius: number = 400;
   sectorCount: number;
@@ -50,9 +50,6 @@ export class AppComponent implements AfterViewInit {
     PixiPlugin.registerPIXI(PIXI);
 
     this.loadAssets();
-    // this.addEventListeners();
-    this.resize();
-    window.addEventListener('resize', () => this.resize());
   }
 
   async loadAssets() {
@@ -71,6 +68,9 @@ export class AppComponent implements AfterViewInit {
     this.changeBg();
     this.addWheelSector();
     this.createButton();
+
+    this.resize();
+    window.addEventListener('resize', () => this.resize());
   }
 
   changeBg() {
